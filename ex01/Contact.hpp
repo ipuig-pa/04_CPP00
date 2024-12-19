@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:58:04 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/18 17:02:02 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/19 10:34:10 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CONTACT_HPP
 
 # include <iostrem>
-# include <>
+# include <string>
 # include 
 
 class Contract
@@ -22,7 +22,11 @@ class Contract
 	private:
 
 	public:
-
+	string	first_name;
+	string	last_name;
+	string	nickname;
+	string	phone_num;
+	string	secret;
 };
 
 #endif
