@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:22:15 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/19 11:43:44 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/19 12:19:01 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,28 @@
 int	main(void)
 {
 	PhoneBook	phonebook;
-	string		action;
-	string		*cont_info;
+	std::string	action;
+	std::string	*cont_info;
+	int			index;
 
 	phonebook.contact_num = 0;
 	while (1)
 	{
 		std::cout << "Type action: ";
 		std::cin >> action;
-		if (action == "ADD")
+		if (std::action.compare("ADD") == 0)
 		{
 			cont_info = ask_contact_info();
 			phnoebook.add_contact(cont_info);
 		}
-		else if (action == "SEARCH")
-			phonebook.search_contact();
-		else if (action == "EXIT")
+		else if (std::action.compare("SEARCH") == 0)
+		{
+			phonebook.display_phonebook();
+			std::cout << "Enter the index of the entry to display: ";
+			std::cin >> index;
+			phonebook.display_contact(index);
+		}
+		else if (std::action.compare("EXIT") == 0)
 		{
 			//clean???
 			break;
@@ -44,25 +50,20 @@ int	main(void)
 	return (0);
 }
 
+//get with getline instead of cin (more than one word)
 string	*ask_contact_info(void)
 {
-	string	field_input;
-	string	*cont_info;
+	std::string	*cont_info;
 	
 	std::cout << "Enter first name: ";
-	std::cin >> field_input;
-	cont_info[0] = field_input;
+	std::cin >> cont_info[0];
 	std::cout << "Enter last name: ";
-	std::cin >> field_input;
-	cont_info[1] = field_input;
+	std::cin >> cont_info[1];
 	std::cout << "Enter nickname: ";
-	std::cin >> field_input;
-	cont_info[2] = field_input;
+	std::cin >> cont_info[2];
 	std::cout << "Enter phone number: ";
-	std::cin >> field_input;
-	cont_info[3] = field_input;
+	std::cin >> cont_info[3];
 	std::cout << "Enter darkest secret: ";
-	std::cin >> field_input;
-	cont_info[4] = field_input;
+	std::cin >> cont_info[4];
 	return (cont_info);
 }
