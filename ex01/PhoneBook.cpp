@@ -6,9 +6,11 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:57:38 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/19 12:21:54 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/19 12:38:59 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "PhoneBook.hpp"
 
 int	PhoneBook::get_addcontact_index(void)
 {
@@ -21,16 +23,16 @@ int	PhoneBook::get_addcontact_index(void)
 }
 
 //How to handle: A saved contact can’t have empty fields.
-void	PhoneBook::add_contact(string *contact_info)
+void	PhoneBook::add_contact(std::string *contact_info)
 {
 	int i;
 
 	i = get_addcontact_index();
-	phonebook.contacts[i].first_name = contact_info[0];
-	phonebook.contacts[i].last_name = contact_info[1];
-	phonebook.contacts[i].nickname = contact_info[2];
-	phonebook.contacts[i].phone_num = contact_info[3];
-	phonebook.contacts[i].secret = contact_info[4];
+	contacts[i].first_name = contact_info[0];
+	contacts[i].last_name = contact_info[1];
+	contacts[i].nickname = contact_info[2];
+	contacts[i].phone_num = contact_info[3];
+	contacts[i].secret = contact_info[4];
 	contact_num++;
 }
 
@@ -45,14 +47,15 @@ void	PhoneBook::display_phonebook(void)
 	i = 0;
 	while (i < contact_num)
 	{
-		std::cout << i << "|" << std::contacts[i].first_name.resize(10) << "|" << std::contacts[i].last_name.resize(10) << "|" << std::contacts[i].nickname.resize(10) << std::endl;
+		std::cout << i << "|" << (contacts[i].first_name).resize(10) << "|" << (contacts[i].last_name).resize(10) << "|" << (contacts[i].nickname).resize(10) << std::endl;
 		i++;
 	}
 }
 
 void	PhoneBook::display_contact(int i)
 {
-	if (i >= phonebook.contact_num || i < 0)
+	if (i >= contact_num || i < 0)
+		std::cout << "Incorrect index" << std::endl;
 		//define a relevant behavior
 	else
 	{

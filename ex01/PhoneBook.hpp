@@ -6,12 +6,16 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:54:18 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/19 12:22:15 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/19 12:33:59 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOOK_HPP
+#ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
+
+#include <iostream>
+#include <string>
+#include "Contact.hpp"
 
 class PhoneBook
 {
@@ -25,8 +29,6 @@ class PhoneBook
 		void	display_phonebook(void);
 		void	display_contact(int index);
 		PhoneBook ();
-	
-
 };
 
 #endif

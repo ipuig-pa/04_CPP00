@@ -4,9 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = phonebook
 
-SRC = PhoneBook.cpp
-HEADER = 	PhoneBook.hpp \
-			Contact.hpp
+SRC = PhoneBook.cpp Contact.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -14,7 +12,6 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(COMPILER) $(CFLAGS) $(OBJ) -o $(NAME)
 
-#add headers somewhere
 %.o: %.cpp
 	$(COMPILER) $(CFLAGS) -o $@ -c $<
 

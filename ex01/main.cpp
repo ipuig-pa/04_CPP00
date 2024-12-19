@@ -6,13 +6,10 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:22:15 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/19 12:19:01 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/19 12:32:27 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <iostream>
-#include <string>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
