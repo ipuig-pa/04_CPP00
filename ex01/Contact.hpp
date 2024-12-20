@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:58:04 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/20 16:20:58 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 17:26:39 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,11 @@
 
 # include <string>
 
-class Contact
-{
-	private:
-	std::string	first_name;
-	std::string	last_name;
-	std::string	nickname;
-	std::string	phone_num;
-	std::string	secret;
+class Contact{
 
-	public:
-	Contact();
+public:
+
+	Contact(void);
 
 	std::string	get_firstname(void);
 	std::string	get_lastname(void);
@@ -38,6 +32,15 @@ class Contact
 	void	set_nickname(const std::string &nick);
 	void	set_phone(const std::string &phone);
 	void	set_secret(const std::string &sec);
+
+private:
+
+	std::string	first_name;
+	std::string	last_name;
+	std::string	nickname;
+	std::string	phone_num;
+	std::string	secret;
+	
 };
 
 #endif
