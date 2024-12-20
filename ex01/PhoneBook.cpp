@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:57:38 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/20 15:40:47 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:56:25 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,6 @@ void	PhoneBook::add_contact(std::string *contact_info)
 		contact_num++;
 }
 
-std::string	PhoneBook::format_wide(std::string str, size_t width)
-{
-	if (str.length() > 10)
-		return (str.substr(0, width - 1) + ".");
-	return (std::string(width - str.length(), ' ') + str);
-}
-
 void	PhoneBook::display_phonebook(void)
 {
 	int	i;
@@ -58,7 +51,16 @@ void	PhoneBook::display_phonebook(void)
 	i = 1;
 	while (i <= contact_num)
 	{
-		std::cout << std::string(9, ' ') << i << "|" + format_wide(contacts[i - 1].get_firstname(), 10) + "|" + format_wide(contacts[i - 1].get_lastname(), 10) + "|" + format_wide(contacts[i - 1].get_nickname(), 10) << std::endl;
+		std::cout << std::setfill(' ') << std::right << std::setw(10) << i << "|"
+				<< std::setw(10) << (contacts[i - 1].get_firstname().length() > 10 ?
+						contacts[i - 1].get_firstname().substr(0, 9) + "." :
+						contacts[i - 1].get_firstname()) << "|"
+				<< std::setw(10) << (contacts[i - 1].get_lastname().length() > 10 ?
+						contacts[i - 1].get_lastname().substr(0, 9) + "." :
+						contacts[i - 1].get_lastname()) << "|"
+				<< std::setw(10) << (contacts[i - 1].get_nickname().length() > 10 ?
+						contacts[i - 1].get_nickname().substr(0, 9) + "." : 
+						contacts[i - 1].get_nickname()) << std::endl;
 		i++;
 	}
 }
@@ -72,10 +74,11 @@ void	PhoneBook::display_contact(const std::string &index)
 	else
 	{
 		i = index[0] - '0';
-		std::cout << "First name:     " + contacts[i - 1].get_firstname() << std::endl;
-		std::cout << "Last name:      " + contacts[i - 1].get_lastname() << std::endl;
-		std::cout << "Nickname:       " + contacts[i - 1].get_nickname() << std::endl;
-		std::cout << "Phone number:   " + contacts[i - 1].get_phone() << std::endl;
-		std::cout << "Darkest secret: " + contacts[i - 1].get_secret() << std::endl;
+		std::cout << std::setfill(' ') << std::left;
+		std::cout << std::setw(16) << "First name:" << contacts[i - 1].get_firstname() << std::endl;
+		std::cout << std::setw(16) << "Last name:" << contacts[i - 1].get_lastname() << std::endl;
+		std::cout << std::setw(16) << "Nickname:" << contacts[i - 1].get_nickname() << std::endl;
+		std::cout << std::setw(16) << "Phone number:" << contacts[i - 1].get_phone() << std::endl;
+		std::cout << std::setw(16) << "Darkest secret:" << contacts[i - 1].get_secret() << std::endl;
 	}
 }

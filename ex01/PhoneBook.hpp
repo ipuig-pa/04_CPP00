@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:54:18 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/20 13:31:45 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:46:48 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 #include "Contact.hpp"
 
 class PhoneBook
 {
 	private:
 		int			get_addcontact_index();
-		std::string	format_wide(std::string str, size_t width);
 		Contact		contacts[8];
 		int			contact_num;
 
