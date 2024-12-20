@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:54:18 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/19 12:33:59 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 11:39:32 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,16 @@
 class PhoneBook
 {
 	private:
-		int		get_addcontact_index();
-		Contact	contacts[8];
-		int		contact_num;
+		int			get_addcontact_index();
+		std::string	format_wide(std::string str, size_t width);
+		Contact		contacts[8];
+		int			contact_num;
 
 	public:
-		void	add_contact(void);
+		PhoneBook();
+		void	add_contact(std::string *contact_info);
 		void	display_phonebook(void);
 		void	display_contact(int index);
-		PhoneBook ();
 };
 
 #endif

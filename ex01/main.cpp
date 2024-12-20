@@ -6,61 +6,55 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:22:15 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/19 12:32:27 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:21:59 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-//which variables should be private and which public?
+//get with getline instead of cin (more than one word)
+std::string	*ask_contact_info(std::string *cont_info)
+{
+	std::cout << "Enter first name: ";
+	std::getline(std::cin, cont_info[0]);
+	std::cout << "Enter last name: ";
+	std::getline(std::cin, cont_info[1]);
+	std::cout << "Enter nickname: ";
+	std::getline(std::cin, cont_info[2]);
+	std::cout << "Enter phone number: ";
+	std::getline(std::cin, cont_info[3]);
+	std::cout << "Enter darkest secret: ";
+	std::getline(std::cin, cont_info[4]);
+	return (cont_info);
+}
+
 int	main(void)
 {
 	PhoneBook	phonebook;
 	std::string	action;
-	std::string	*cont_info;
 	int			index;
+	std::string	cont_info[5];
 
-	phonebook.contact_num = 0;
 	while (1)
 	{
 		std::cout << "Type action: ";
-		std::cin >> action;
-		if (std::action.compare("ADD") == 0)
+		std::getline(std::cin, action);
+		if (action.compare("ADD") == 0)
 		{
-			cont_info = ask_contact_info();
-			phnoebook.add_contact(cont_info);
+			ask_contact_info(cont_info);
+			phonebook.add_contact(cont_info);
 		}
-		else if (std::action.compare("SEARCH") == 0)
+		else if (action.compare("SEARCH") == 0)
 		{
 			phonebook.display_phonebook();
 			std::cout << "Enter the index of the entry to display: ";
 			std::cin >> index;
+			std::cin.ignore();
 			phonebook.display_contact(index);
 		}
-		else if (std::action.compare("EXIT") == 0)
-		{
-			//clean???
-			break;
-		}
+		else if (action.compare("EXIT") == 0)
+			break ;
 	}
 	return (0);
-}
-
-//get with getline instead of cin (more than one word)
-string	*ask_contact_info(void)
-{
-	std::string	*cont_info;
-	
-	std::cout << "Enter first name: ";
-	std::cin >> cont_info[0];
-	std::cout << "Enter last name: ";
-	std::cin >> cont_info[1];
-	std::cout << "Enter nickname: ";
-	std::cin >> cont_info[2];
-	std::cout << "Enter phone number: ";
-	std::cin >> cont_info[3];
-	std::cout << "Enter darkest secret: ";
-	std::cin >> cont_info[4];
-	return (cont_info);
 }

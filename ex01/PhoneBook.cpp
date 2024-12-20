@@ -6,11 +6,16 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:57:38 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/19 12:38:59 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:06:08 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+PhoneBook::PhoneBook()
+{
+	contact_num = 0;
+}
 
 int	PhoneBook::get_addcontact_index(void)
 {
@@ -25,29 +30,36 @@ int	PhoneBook::get_addcontact_index(void)
 //How to handle: A saved contact can’t have empty fields.
 void	PhoneBook::add_contact(std::string *contact_info)
 {
-	int i;
+	int		i;
+	Contact	new_contact;
 
+	new_contact.set_firstname(contact_info[0]);
+	new_contact.set_lastname(contact_info[1]);
+	new_contact.set_nickname(contact_info[2]);
+	new_contact.set_phone(contact_info[3]);
+	new_contact.set_secret(contact_info[4]);
 	i = get_addcontact_index();
-	contacts[i].first_name = contact_info[0];
-	contacts[i].last_name = contact_info[1];
-	contacts[i].nickname = contact_info[2];
-	contacts[i].phone_num = contact_info[3];
-	contacts[i].secret = contact_info[4];
-	contact_num++;
+	contacts[i] = new_contact;
+	if (contact_num < 8)
+		contact_num++;
+}
+
+std::string	PhoneBook::format_wide(std::string str, size_t width)
+{
+	if (str.length() > 10)
+		return (str.substr(0, width - 1) + ".");
+	return (str + std::string(width - str.length(), ' '));
 }
 
 //Start from index 1 instead of 0??
-//Intoduce: Each column must be 10 characters wide. If the text is longer than the column, it must be truncated and the last displayable character must be replaced by a dot (’.’).
-
-//NOT IMPLEMENTED YET: If the text is longer than the column, it must be truncated and the last displayable character must be replaced by a dot (’.’).
 void	PhoneBook::display_phonebook(void)
 {
-	int	i;
+	int			i;
 
 	i = 0;
 	while (i < contact_num)
 	{
-		std::cout << i << "|" << (contacts[i].first_name).resize(10) << "|" << (contacts[i].last_name).resize(10) << "|" << (contacts[i].nickname).resize(10) << std::endl;
+		std::cout << i << "|" + format_wide(contacts[i].get_firstname(), 10) + "|" + format_wide(contacts[i].get_lastname(), 10) + "|" + format_wide(contacts[i].get_nickname(), 10) << std::endl;
 		i++;
 	}
 }
@@ -59,10 +71,10 @@ void	PhoneBook::display_contact(int i)
 		//define a relevant behavior
 	else
 	{
-		std::cout << contacts[i].first_name << std::endl;
-		std::cout << contacts[i].last_name << std::endl;
-		std::cout << contacts[i].nickname << std::endl;
-		std::cout << contacts[i].phone_num << std::endl;
-		std::cout << contacts[i].secret << std::endl;
+		std::cout << contacts[i].get_firstname() << std::endl;
+		std::cout << contacts[i].get_lastname() << std::endl;
+		std::cout << contacts[i].get_nickname() << std::endl;
+		std::cout << contacts[i].get_phone() << std::endl;
+		std::cout << contacts[i].get_secret() << std::endl;
 	}
 }
