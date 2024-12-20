@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:54:18 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/20 11:39:32 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:05:16 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class PhoneBook
 		PhoneBook();
 		void	add_contact(std::string *contact_info);
 		void	display_phonebook(void);
-		void	display_contact(int index);
+		void	display_contact(const std::string &index);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:58:01 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/20 12:35:10 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:06:10 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,27 +42,27 @@ std::string	Contact::get_secret(void)
 }
 
 //implement checkings for valid input in the setters? At least for input fields
-void	Contact::set_firstname(std::string &fname)
+void	Contact::set_firstname(const std::string &fname)
 {
 	first_name = fname;
 }
 
-void	Contact::set_lastname(std::string &lname)
+void	Contact::set_lastname(const std::string &lname)
 {
 	last_name = lname;
 }
 
-void	Contact::set_nickname(std::string &nick)
+void	Contact::set_nickname(const std::string &nick)
 {
 	nickname = nick;
 }
 
-void	Contact::set_phone(std::string &phone)
+void	Contact::set_phone(const std::string &phone)
 {
 	phone_num = phone;
 }
 
-void	Contact::set_secret(std::string &sec)
+void	Contact::set_secret(const std::string &sec)
 {
 	secret = sec;
 }

@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:57:38 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/20 12:35:30 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:29:20 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,30 +52,31 @@ std::string	PhoneBook::format_wide(std::string str, size_t width)
 	return (str + std::string(width - str.length(), ' '));
 }
 
-//Start from index 1 instead of 0??
 void	PhoneBook::display_phonebook(void)
 {
-	int			i;
+	int	i;
 
-	i = 0;
-	while (i < contact_num)
+	i = 1;
+	while (i <= contact_num)
 	{
-		std::cout << i << "|" + format_wide(contacts[i].get_firstname(), 10) + "|" + format_wide(contacts[i].get_lastname(), 10) + "|" + format_wide(contacts[i].get_nickname(), 10) << std::endl;
+		std::cout << i << "|" + format_wide(contacts[i - 1].get_firstname(), 10) + "|" + format_wide(contacts[i - 1].get_lastname(), 10) + "|" + format_wide(contacts[i - 1].get_nickname(), 10) << std::endl;
 		i++;
 	}
 }
 
-void	PhoneBook::display_contact(int i)
+void	PhoneBook::display_contact(const std::string &index)
 {
-	if (i >= contact_num || i < 0)
+	int	i;
+
+	if (index.length() != 1 || index[0] <= '0' || index[0] > ('0' + contact_num))
 		std::cout << "Incorrect index" << std::endl;
-		//define a relevant behavior
 	else
 	{
-		std::cout << contacts[i].get_firstname() << std::endl;
-		std::cout << contacts[i].get_lastname() << std::endl;
-		std::cout << contacts[i].get_nickname() << std::endl;
-		std::cout << contacts[i].get_phone() << std::endl;
-		std::cout << contacts[i].get_secret() << std::endl;
+		i = index[0] - '0';
+		std::cout << contacts[i - 1].get_firstname() << std::endl;
+		std::cout << contacts[i - 1].get_lastname() << std::endl;
+		std::cout << contacts[i - 1].get_nickname() << std::endl;
+		std::cout << contacts[i - 1].get_phone() << std::endl;
+		std::cout << contacts[i - 1].get_secret() << std::endl;
 	}
 }

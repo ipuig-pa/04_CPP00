@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:58:04 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/20 12:36:04 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:05:56 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ class Contact
 	std::string	get_phone(void);
 	std::string	get_secret(void);
 
-	void	set_firstname(std::string &fname);
-	void	set_lastname(std::string &lname);
-	void	set_nickname(std::string &nick);
-	void	set_phone(std::string &phone);
-	void	set_secret(std::string &sec);
+	void	set_firstname(const std::string &fname);
+	void	set_lastname(const std::string &lname);
+	void	set_nickname(const std::string &nick);
+	void	set_phone(const std::string &phone);
+	void	set_secret(const std::string &sec);
 };
 
 #endif
