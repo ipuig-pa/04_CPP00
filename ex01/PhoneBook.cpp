@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:57:38 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/20 13:29:20 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:31:41 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	PhoneBook::get_addcontact_index(void)
 	return (i - 1);
 }
 
-//How to handle: A saved contact can’t have empty fields.
 void	PhoneBook::add_contact(std::string *contact_info)
 {
 	int		i;
