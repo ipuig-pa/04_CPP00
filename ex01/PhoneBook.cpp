@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 15:57:38 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/20 13:31:41 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:40:47 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ std::string	PhoneBook::format_wide(std::string str, size_t width)
 {
 	if (str.length() > 10)
 		return (str.substr(0, width - 1) + ".");
-	return (str + std::string(width - str.length(), ' '));
+	return (std::string(width - str.length(), ' ') + str);
 }
 
 void	PhoneBook::display_phonebook(void)
@@ -58,7 +58,7 @@ void	PhoneBook::display_phonebook(void)
 	i = 1;
 	while (i <= contact_num)
 	{
-		std::cout << i << "|" + format_wide(contacts[i - 1].get_firstname(), 10) + "|" + format_wide(contacts[i - 1].get_lastname(), 10) + "|" + format_wide(contacts[i - 1].get_nickname(), 10) << std::endl;
+		std::cout << std::string(9, ' ') << i << "|" + format_wide(contacts[i - 1].get_firstname(), 10) + "|" + format_wide(contacts[i - 1].get_lastname(), 10) + "|" + format_wide(contacts[i - 1].get_nickname(), 10) << std::endl;
 		i++;
 	}
 }
@@ -72,10 +72,10 @@ void	PhoneBook::display_contact(const std::string &index)
 	else
 	{
 		i = index[0] - '0';
-		std::cout << contacts[i - 1].get_firstname() << std::endl;
-		std::cout << contacts[i - 1].get_lastname() << std::endl;
-		std::cout << contacts[i - 1].get_nickname() << std::endl;
-		std::cout << contacts[i - 1].get_phone() << std::endl;
-		std::cout << contacts[i - 1].get_secret() << std::endl;
+		std::cout << "First name:     " + contacts[i - 1].get_firstname() << std::endl;
+		std::cout << "Last name:      " + contacts[i - 1].get_lastname() << std::endl;
+		std::cout << "Nickname:       " + contacts[i - 1].get_nickname() << std::endl;
+		std::cout << "Phone number:   " + contacts[i - 1].get_phone() << std::endl;
+		std::cout << "Darkest secret: " + contacts[i - 1].get_secret() << std::endl;
 	}
 }
