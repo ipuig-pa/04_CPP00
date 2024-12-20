@@ -6,13 +6,13 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:58:01 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/20 13:31:30 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:21:00 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact(void)
+Contact::Contact()
 {
 }
 

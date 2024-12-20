@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:58:04 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/20 13:31:32 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:20:58 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Contact
 	std::string	secret;
 
 	public:
-	Contact(void);
+	Contact();
 
 	std::string	get_firstname(void);
 	std::string	get_lastname(void);

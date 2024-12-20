@@ -6,7 +6,7 @@
 /*   By: ipuig-pa <ipuig-pa@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 11:22:15 by ipuig-pa          #+#    #+#             */
-/*   Updated: 2024/12/20 13:31:35 by ipuig-pa         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:21:04 by ipuig-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,18 @@
 
 std::string	check_non_empty(std::string str, std::string field)
 {
-	
 	while (str.empty())
 	{
 		std::cout << "A contact cannot have empty fields. Enter " + field + ": ";
 		std::getline(std::cin, str);
+	}
+	if (field.compare("phone number") == 0)
+	{
+		while (!(str.find_first_not_of("+0123456789") == std::string::npos))
+		{
+			std::cout << "Phone number must contain only digits or + sign. Enter valid " + field + ": ";
+			std::getline(std::cin, str);
+		}
 	}
 	return (str);
 }
